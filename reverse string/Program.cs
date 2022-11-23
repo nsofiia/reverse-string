@@ -18,7 +18,7 @@ class Program
             iterationsToReverse--;
         } while (iterationsToReverse > -1);
         string reversedInput = string.Join("", reversedInputList);//joining list into string
-        if (initialInput == reversedInput) //comparing strings
+        if (initialInput.ToUpper() == reversedInput.ToUpper()) //comparing strings
         {
             Console.WriteLine("\nfound palindrome!");
         }
