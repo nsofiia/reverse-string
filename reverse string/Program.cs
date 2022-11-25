@@ -5,22 +5,26 @@ class Program
 {
     static void Main(string[] args)
     {
-
         Console.WriteLine("Hello, I'll reverse anything you say: ");
-        string initialInput = Console.ReadLine();
-        int iterationsToReverse = initialInput.Length - 1;
-        string reversedStr = "";
-        while (iterationsToReverse > -1)
-        {
-            reversedStr += initialInput[iterationsToReverse];
-            iterationsToReverse--;
-        }
+        string initialInput = Console.ReadLine().ToLower();
+        int palindromeCount = 0;
+        int actualIndex = 0;
 
-        if (initialInput.ToUpper().Equals(reversedStr.ToUpper()))
+        for (int index = initialInput.Length - 1; index > -1; index--)
         {
-            Console.WriteLine("found palindrome");
-        }
-        Console.ReadKey(true);
+            Console.Write(initialInput[index]);
+            if (initialInput[index] == initialInput[actualIndex])
+            {
+                actualIndex++;
+                palindromeCount++;
+            }
 
+            if (palindromeCount == initialInput.Length)
+            {
+                Console.WriteLine("\nPalindrome");
+            }
+        }
+        Console.ReadLine();
     }
 }
+
